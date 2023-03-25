@@ -18,7 +18,7 @@ public class MessagePackRESTSerializer<TRESTCode>
 
     public MessagePackRESTSerializer(MessagePackSerializerOptions? options, ImmutableArray<string> mIMETypes)
     {
-        Options = options ?? new MessagePackSerializerOptions(new RESTFormatterResolver());
+        //Options = options ?? new MessagePackSerializerOptions(new RESTFormatterResolver());
         MIMETypes = mIMETypes;
     }
 

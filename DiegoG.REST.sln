@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiegoG.RESTBase.TestAPI", "DiegoG.RESTBase.TestAPI\DiegoG.RESTBase.TestAPI.csproj", "{D1F635D0-8485-4840-BACD-73D08B535949}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiegoG.REST.TestAPI", "DiegoG.REST.TestAPI\DiegoG.REST.TestAPI.csproj", "{D1F635D0-8485-4840-BACD-73D08B535949}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiegoG.RESTBase", "DiegoG.RESTBase\DiegoG.RESTBase.csproj", "{58573102-2564-41CE-BB43-168F886ED610}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiegoG.REST", "DiegoG.REST\DiegoG.REST.csproj", "{58573102-2564-41CE-BB43-168F886ED610}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiegoG.RESTBase.Json", "DiegoG.RESTBase.Json\DiegoG.RESTBase.Json.csproj", "{CC499CC9-11CA-40B9-A5DC-532D706DFBB4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiegoG.REST.Json", "DiegoG.REST.Json\DiegoG.REST.Json.csproj", "{CC499CC9-11CA-40B9-A5DC-532D706DFBB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiegoG.RESTBase.MessagePack", "DiegoG.RESTBase.MessagePack\DiegoG.RESTBase.MessagePack.csproj", "{4B7DA530-8D8B-4F65-ABB5-7A3DE15F99F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiegoG.REST.MessagePack", "DiegoG.REST.MessagePack\DiegoG.REST.MessagePack.csproj", "{4B7DA530-8D8B-4F65-ABB5-7A3DE15F99F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
