@@ -7,7 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DiegoG.REST.ASPNET\DiegoG.REST.ASPNET.csproj" />
+    <ProjectReference Include="..\DiegoG.REST.Json\DiegoG.REST.Json.csproj" />
+    <ProjectReference Include="..\DiegoG.REST\DiegoG.REST.csproj" />
   </ItemGroup>
 
 </Project>

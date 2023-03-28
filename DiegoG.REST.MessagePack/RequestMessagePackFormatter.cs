@@ -3,11 +3,11 @@ using DiegoG.RESTBase.Requests;
 using MessagePack;
 using MessagePack.Formatters;
 
-namespace DiegoG.RESTBase.MessagePack;
+namespace DiegoG.REST.MessagePack;
 
 public class RequestMessagePackFormatter<TRequest, TRequestCode> : IMessagePackFormatter<TRequest>
     where TRequest : RESTRequestBase<TRequestCode>
-    where TRequestCode : unmanaged, Enum, IEquatable<TRequestCode>
+    where TRequestCode : struct, Enum, IEquatable<TRequestCode>
 {
     public unsafe void Serialize(ref MessagePackWriter writer, TRequest value, MessagePackSerializerOptions options)
     {

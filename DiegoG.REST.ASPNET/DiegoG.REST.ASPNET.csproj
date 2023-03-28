@@ -4,26 +4,31 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageId>$(AssemblyName).Core</PackageId>
-    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <IncludeSymbols>True</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-
+	  
 	<Version>$(AssemblyVersion)</Version>
 	<FileVersion>$(AssemblyVersion)</FileVersion>
 	<AssemblyVersion>1.0.0</AssemblyVersion>
-	<Title>DiegoG REST Base Library</Title>
-    <Description>A library containing useful base classes and utilities for making RESTful APIs and consumers</Description>
+	<Title>DiegoG REST ASP.NET Library</Title>
+    <Description>A library containing useful utilities for making RESTful APIs with ASP.NET</Description>
 	<Authors>Diego Garcia</Authors>
 	<Company>Diego Garcia </Company>
 	<Copyright>Diego Garcia ©️ 2023</Copyright>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<RepositoryType>git</RepositoryType>
 	<PackageTags>api; http; rest; restful; asp.net; asp; json; messagepack</PackageTags>
 	<NeutralLanguage>en</NeutralLanguage>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ConfigureAwait.Fody" Version="3.3.2" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DiegoG.REST\DiegoG.REST.csproj" />
+  </ItemGroup>
 
 </Project>

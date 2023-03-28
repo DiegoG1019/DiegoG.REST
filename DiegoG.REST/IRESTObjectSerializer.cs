@@ -1,31 +1,36 @@
 ﻿using System.Collections.Immutable;
 
-namespace DiegoG.RESTBase.Requests;
+namespace DiegoG.REST;
 
 /// <summary>
 /// Represents an object capable of serializing and deserializing a request
 /// </summary>
 /// <typeparam name="TRequestCode">The type of code that will be used to discriminate requests</typeparam>
-public interface IRequestSerializer<TRequestCode> where TRequestCode : struct, IEquatable<TRequestCode>
+public interface IRESTObjectSerializer<TRequestCode> where TRequestCode : struct, IEquatable<TRequestCode>
 {
     /// <summary>
-    /// The MIME types that this serializes emits and receives
+    /// The MIME types that this serializer emits and receives
     /// </summary>
     public ImmutableArray<string> MIMETypes { get; }
 
     /// <summary>
-    /// Serializes a given RESTRequest into the format used by this object
+    /// The MIME Character set that this serializer emits and receives
     /// </summary>
-    /// <param name="request">The request object that is to be serialized</param>
-    /// <param name="output">The stream in which the serialized object will be written</param>
-    public void Serialize(RESTRequestBase<TRequestCode> request, Stream output);
+    public string Charset { get; }
 
     /// <summary>
     /// Serializes a given RESTRequest into the format used by this object
     /// </summary>
     /// <param name="request">The request object that is to be serialized</param>
     /// <param name="output">The stream in which the serialized object will be written</param>
-    public Task SerializeAsync(RESTRequestBase<TRequestCode> request, Stream output);
+    public void Serialize(RESTObject<TRequestCode> request, Stream output);
+
+    /// <summary>
+    /// Serializes a given RESTRequest into the format used by this object
+    /// </summary>
+    /// <param name="request">The request object that is to be serialized</param>
+    /// <param name="output">The stream in which the serialized object will be written</param>
+    public Task SerializeAsync(RESTObject<TRequestCode> request, Stream output);
 
     /// <summary>
     /// Verifies if the mime types in <paramref name="mimeTypes"/> are also contained in <see cref="MIMETypes"/>
@@ -44,7 +49,7 @@ public interface IRequestSerializer<TRequestCode> where TRequestCode : struct, I
     /// </summary>
     /// <param name="stream">The stream to read the request from</param>
     /// <param name="table">The table from which to read the type through the code</param>
-    public RESTRequestBase<TRequestCode> Deserialize(Stream stream, RequestTypeTable<TRequestCode> table);
+    public RESTObject<TRequestCode> Deserialize(Stream stream, RESTObjectTypeTable<TRequestCode> table);
 
     /// <summary>
     /// Deserializes a given RESTRequest into the format used by this object
@@ -53,7 +58,7 @@ public interface IRequestSerializer<TRequestCode> where TRequestCode : struct, I
     /// <param name="stream">The stream to read the request from</param>
     /// <param name="table">The table from which to read the type through the code</param>
     /// <exception cref="ArgumentException"></exception>
-    public TRequest Deserialize<TRequest>(Stream stream, RequestTypeTable<TRequestCode> table) where TRequest : RESTRequestBase<TRequestCode>
+    public TRequest Deserialize<TRequest>(Stream stream, RESTObjectTypeTable<TRequestCode> table) where TRequest : RESTObject<TRequestCode>
     {
         var dat = Deserialize(stream, table);
         return dat as TRequest ?? throw new ArgumentException($"The request could not be deserialized into a request of type {typeof(TRequest)}", nameof(stream));
@@ -64,7 +69,7 @@ public interface IRequestSerializer<TRequestCode> where TRequestCode : struct, I
     /// </summary>
     /// <param name="stream">The stream to read the request from</param>
     /// <param name="table">The table from which to read the type through the code</param>
-    public Task<RESTRequestBase<TRequestCode>> DeserializeAsync(Stream stream, RequestTypeTable<TRequestCode> table);
+    public Task<RESTObject<TRequestCode>> DeserializeAsync(Stream stream, RESTObjectTypeTable<TRequestCode> table);
 
     /// <summary>
     /// Deserializes a given RESTRequest into the format used by this object
@@ -73,7 +78,7 @@ public interface IRequestSerializer<TRequestCode> where TRequestCode : struct, I
     /// <param name="stream">The stream to read the request from</param>
     /// <param name="table">The table from which to read the type through the code</param>
     /// <exception cref="ArgumentException"></exception>
-    public async Task<TRequest> DeserializeAsync<TRequest>(Stream stream, RequestTypeTable<TRequestCode> table) where TRequest : RESTRequestBase<TRequestCode>
+    public async Task<TRequest> DeserializeAsync<TRequest>(Stream stream, RESTObjectTypeTable<TRequestCode> table) where TRequest : RESTObject<TRequestCode>
     {
         var dat = await DeserializeAsync(stream, table).ConfigureAwait(false);
         return dat as TRequest ?? throw new ArgumentException($"The request could not be deserialized into a request of type {typeof(TRequest)}", nameof(stream));

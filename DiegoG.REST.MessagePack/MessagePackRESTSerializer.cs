@@ -1,13 +1,13 @@
 ﻿using System.Buffers;
 using System.Collections.Immutable;
-using DiegoG.RESTBase.Requests;
+using DiegoG.REST;
 using MessagePack;
 
-namespace DiegoG.RESTBase.MessagePack;
+namespace DiegoG.REST.MessagePack;
 
-public class MessagePackRESTSerializer<TRESTCode> 
-    : IRequestSerializer<TRESTCode>
-    where TRESTCode : unmanaged, Enum, IEquatable<TRESTCode>
+public class MessagePackRESTSerializer<TRESTCode>
+    : IRESTObjectSerializer<TRESTCode>
+    where TRESTCode : struct, Enum, IEquatable<TRESTCode>
 {
     private readonly struct RequestCodeBuffer
     {
@@ -38,7 +38,7 @@ public class MessagePackRESTSerializer<TRESTCode>
         return MessagePackSerializer.SerializeAsync(type, output, request, Options);
     }
 
-    public RESTRequestBase<TRESTCode> Deserialize(Stream stream, RequestTypeTable<TRESTCode> table)
+    public RESTRequestBase<TRESTCode> Deserialize(Stream stream, RESTObjectTypeTable<TRESTCode> table)
     {
         if (stream.Length > int.MaxValue)
             throw new ArgumentException("The stream is too large", nameof(stream));
@@ -70,7 +70,7 @@ public class MessagePackRESTSerializer<TRESTCode>
         }
     }
 
-    public async Task<RESTRequestBase<TRESTCode>> DeserializeAsync(Stream stream, RequestTypeTable<TRESTCode> table)
+    public async Task<RESTRequestBase<TRESTCode>> DeserializeAsync(Stream stream, RESTObjectTypeTable<TRESTCode> table)
     {
         if (stream.Length > int.MaxValue)
             throw new ArgumentException("The stream is too large", nameof(stream));
@@ -100,5 +100,27 @@ public class MessagePackRESTSerializer<TRESTCode>
             if (rented is not null)
                 ArrayPool<byte>.Shared.Return(rented);
         }
+    }
+
+    public string TypeKey { get; }
+
+    public void Serialize(RESTObject<TRESTCode> request, Stream output)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task SerializeAsync(RESTObject<TRESTCode> request, Stream output)
+    {
+        throw new NotImplementedException();
+    }
+
+    RESTObject<TRESTCode> IRESTObjectSerializer<TRESTCode>.Deserialize(Stream stream, RESTObjectTypeTable<TRESTCode> table)
+    {
+        throw new NotImplementedException();
+    }
+
+    Task<RESTObject<TRESTCode>> IRESTObjectSerializer<TRESTCode>.DeserializeAsync(Stream stream, RESTObjectTypeTable<TRESTCode> table)
+    {
+        throw new NotImplementedException();
     }
 }
