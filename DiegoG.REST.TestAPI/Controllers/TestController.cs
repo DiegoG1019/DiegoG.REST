@@ -7,7 +7,6 @@ namespace DiegoG.REST.TestAPI.Controllers;
 
 public readonly record struct TestRequestBody(string Hello);
 
-[AddModelStateFeature]
 [ApiController]
 [Route("api/test")]
 public class TestController : Controller

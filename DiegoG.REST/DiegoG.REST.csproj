@@ -8,8 +8,6 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>$(AssemblyName).Core</PackageId>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <IncludeSymbols>True</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
 	<Version>$(AssemblyVersion)</Version>
 	<FileVersion>$(AssemblyVersion)</FileVersion>
