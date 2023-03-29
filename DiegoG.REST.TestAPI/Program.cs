@@ -27,7 +27,7 @@ public class Program
         builder.Services.AddRESTObjectSerializer(new JsonRESTSerializer<ResponseCode>());
         builder.Services.AddRESTObjectTypeTable(RESTResponseTypeTable.Instance);
 
-        builder.Services.AddScoped<ValidateRESTObjectActionFilter<ResponseCode>>();
+        builder.Services.UseRESTObjectValidationFilter<ResponseCode>();
 
         builder.Services.UseRESTInvalidModelStateResponse(
             (c, e) => new RESTObjectResult<ResponseCode>(new ErrorResponse(e))
@@ -37,9 +37,7 @@ public class Program
         );
 
         var app = builder.Build();
-
-        // Configure the HTTP request pipeline.
-
+        
         app.UseRESTExceptionHandler(
                 (r, e, serv, con) => Task.FromResult<ExceptionRESTResponse<ResponseCode>>(
                     new(
@@ -49,6 +47,8 @@ public class Program
                 )
             );
 
+
+        // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();

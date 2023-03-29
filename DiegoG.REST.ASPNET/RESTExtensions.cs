@@ -33,6 +33,17 @@ public static class RESTExtensions
     }
 
     /// <summary>
+    /// Registers the service for <see cref="ValidateRESTObjectActionFilter{TRESTObjectCode}"/> to permit the usage of <see cref="ValidateRESTObjectAttribute"/> in controllers and actions
+    /// </summary>
+    public static IServiceCollection UseRESTObjectValidationFilter<TResponseCode>(
+        this IServiceCollection services
+    ) where TResponseCode : struct, IEquatable<TResponseCode>
+    {
+        services.AddScoped<ValidateRESTObjectActionFilter<TResponseCode>>();
+        return services;
+    }
+
+    /// <summary>
     /// Configures <paramref name="services"/> to use the specific, REST model compliant <paramref name="responseFactory"/> to respond to requests that cause model validation errors not otherwise handled by Middleware
     /// </summary>
     public static IServiceCollection UseRESTInvalidModelStateResponse<TResponseCode>(

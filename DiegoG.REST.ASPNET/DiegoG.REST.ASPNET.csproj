@@ -11,7 +11,7 @@
 	  
 	<Version>$(AssemblyVersion)</Version>
 	<FileVersion>$(AssemblyVersion)</FileVersion>
-	<AssemblyVersion>1.0.0</AssemblyVersion>
+	<AssemblyVersion>1.1.1</AssemblyVersion>
 	<Title>DiegoG REST ASP.NET Library</Title>
     <Description>A library containing useful utilities for making RESTful APIs with ASP.NET</Description>
 	<Authors>Diego Garcia</Authors>
