@@ -6,9 +6,9 @@
     <Nullable>enable</Nullable>
 	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	  
+	<AssemblyVersion>1.0.0</AssemblyVersion>
 	<Version>$(AssemblyVersion)</Version>
 	<FileVersion>$(AssemblyVersion)</FileVersion>
-	<AssemblyVersion>1.0.0</AssemblyVersion>
 	<Title>DiegoG REST MessagePack Serialization Library</Title>
     <Description>A library containing classes and utilities for making RESTful APIs and consumers that serialize to and from MessagePack</Description>
 	<Authors>Diego Garcia</Authors>

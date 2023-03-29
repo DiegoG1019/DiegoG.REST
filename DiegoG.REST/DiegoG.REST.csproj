@@ -9,9 +9,9 @@
     <PackageId>$(AssemblyName).Core</PackageId>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 
-	<Version>$(AssemblyVersion)</Version>
-	<FileVersion>$(AssemblyVersion)</FileVersion>
 	<AssemblyVersion>1.0.1</AssemblyVersion>
+	<FileVersion>$(AssemblyVersion)</FileVersion>
+	<Version>$(AssemblyVersion)</Version>
 	<Title>DiegoG REST Base Library</Title>
     <Description>A library containing useful base classes and utilities for making RESTful APIs and consumers</Description>
 	<Authors>Diego Garcia</Authors>

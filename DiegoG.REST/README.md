@@ -2,7 +2,7 @@
 
 [![NuGet Package](https://img.shields.io/badge/NuGet-v1.0.1-blue)](https://www.nuget.org/packages/DiegoG.REST.Core)
 
-<b>Provides base types and utilities useful for creating standardized models for a REST API and consumers of such an API</b>
+**Provides base types and utilities useful for creating standardized models for a REST API and consumers of such an API**
 
 ## Types
 ### RESTObject

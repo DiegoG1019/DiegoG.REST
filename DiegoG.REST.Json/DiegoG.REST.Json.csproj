@@ -9,9 +9,9 @@
     <PackageId>$(AssemblyName)</PackageId>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 	  
+	<AssemblyVersion>1.0.1</AssemblyVersion>
 	<Version>$(AssemblyVersion)</Version>
 	<FileVersion>$(AssemblyVersion)</FileVersion>
-	<AssemblyVersion>1.0.1</AssemblyVersion>
 	<Title>DiegoG REST JSON Serialization Library</Title>
     <Description>A library containing classes and utilities for making RESTful APIs and consumers that serialize to and from JSON</Description>
 	<Authors>Diego Garcia</Authors>
