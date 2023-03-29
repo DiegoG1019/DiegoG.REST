@@ -11,7 +11,7 @@
 
 	<Version>$(AssemblyVersion)</Version>
 	<FileVersion>$(AssemblyVersion)</FileVersion>
-	<AssemblyVersion>1.0.0</AssemblyVersion>
+	<AssemblyVersion>1.0.1</AssemblyVersion>
 	<Title>DiegoG REST Base Library</Title>
     <Description>A library containing useful base classes and utilities for making RESTful APIs and consumers</Description>
 	<Authors>Diego Garcia</Authors>
